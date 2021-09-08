@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Booklist
+{% endblock %}
+
+{% block main %}
+
+    <p>
+        <h3>BOOKLIST</h3>
+    </p>
+    <br>
+        <table id="table" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Writer</th>
+                <th>Status</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.writer }}</td>
+                    <td>{{ book.status }}</td>
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+        </table>
+
+
+{% endblock %}

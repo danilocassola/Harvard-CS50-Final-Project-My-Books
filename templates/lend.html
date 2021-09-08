@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Lend
+{% endblock %}
+
+{% block main %}
+
+    <form action="/lend" method="post">
+        <div class="form-group">
+            <select class="form-control" name="title">
+                <option disabled selected value="">Title</option>
+                    {% for book in books %}
+
+                    <option value="{{ book.title }}">{{ book.title }}</option>
+
+                    {% endfor %}
+
+            </select>
+            <input autocomplete="off" autofocus class="form-control" name="who" placeholder="Who" type="text">
+            <button class="btn btn-primary" type="submit">Lend</button>
+        </div>
+
+
+    </form>
+    <br>
+    <p>
+        <h3>LENT BOOKS</h3>
+    </p>
+    <br>
+    <table id="table" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Writer</th>
+                <th>Status</th>
+                <th>Who</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row.title }}</td>
+                    <td>{{ row.writer }}</td>
+                    <td>{{ row.status }}</td>
+                    <td>{{ row.who }}</td>
+                    <td>{{ row.date }}</td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+        </table>
+
+
+{% endblock %}
